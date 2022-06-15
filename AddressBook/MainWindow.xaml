@@ -1,0 +1,77 @@
+﻿<Window x:Class="AddressBook.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AddressBook"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <DockPanel>
+            <WrapPanel>
+                <Label Content="First Name" HorizontalAlignment="Left" Width="75" />
+                <TextBox Name="txtfirstName" MaxLength="30" VerticalAlignment="Center" Width="200"/>
+                <Label Content="*" HorizontalAlignment="Left" Foreground="Red" VerticalAlignment="Center"/>
+
+                <Label Content="Last Name" HorizontalAlignment="Left" Width="75" />
+                <TextBox Name="txtlastName" MaxLength="30" VerticalAlignment="Center" Width="200"/>
+                <Label Content="*" HorizontalAlignment="Left" Foreground="Red" VerticalAlignment="Center"/>
+
+                <Label Content="Nick Name" HorizontalAlignment="Left" Width="75" />
+                <TextBox Name="txtnickName" MaxLength="30" VerticalAlignment="Center" Width="200"/>
+
+                <Label Content="Address" HorizontalAlignment="Left" Width="75" />
+                <TextBox Name="txtaddress" MaxLength="250" VerticalAlignment="Center" Width="200"
+                         TextWrapping="Wrap" Height="60"/>
+
+                <Label Content="Email" HorizontalAlignment="Left" Width="75" />
+                <TextBox Name="txtemail" MaxLength="30" VerticalAlignment="Center" Width="200"/>
+
+                <Label Content="Phone" HorizontalAlignment="Left" Width="75" />
+                <TextBox Name="txtphone" MaxLength="12" VerticalAlignment="Center" Width="200"/>
+
+                <Label Content="ICQ" HorizontalAlignment="Left" Width="75" />
+                <TextBox Name="txticq" MaxLength="30" VerticalAlignment="Center" Width="200"/>
+
+                <Label Content="Skype" HorizontalAlignment="Left" Width="75" />
+                <TextBox Name="txtskype" MaxLength="30" VerticalAlignment="Center" Width="200"/>
+
+            </WrapPanel>
+            
+
+
+
+        </DockPanel>
+
+
+
+        <ListView x:Name="LvPeople" Grid.Column="1" Grid.RowSpan="2"
+                  HorizontalAlignment="Left" Height="399" Margin="10,10,0,0" 
+                  VerticalAlignment="Top" Width="472" MouseDoubleClick="LvPeople_MouseDoubleClick" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Фамилия" Width="120" DisplayMemberBinding="{Binding FirstName}" />
+                    <GridViewColumn Header="Имя" Width="120" DisplayMemberBinding="{Binding LastName}" />
+                    <GridViewColumn Header="Email" Width="120" DisplayMemberBinding="{Binding Email}" />
+                    <GridViewColumn Header="Телефон" Width="120" DisplayMemberBinding="{Binding Phone}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Button Width="75" Margin="10"
+                    Content="Add" Name="Add_button" Click="Add_button_Click"/>
+            <Button Width="75" Margin="10"
+                    Content="Edit" Name="Edit_button" Click="Edit_button_Click"/>
+            <Button Width="75" Margin="10"
+                    Content="Delete" Name="Delete_button" Click="Delete_button_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
